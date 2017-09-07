@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    properties([parameters([booleanParam(description: '', name: 'TEST2')]), pipelineTriggers([])])
+
     stages {
         stage('Preparation') {
             steps {
