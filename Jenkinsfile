@@ -1,7 +1,14 @@
 pipeline {
     agent any
 
-    properties([parameters([booleanParam(description: '', name: 'TEST2')]), pipelineTriggers([])])
+    properties([
+      parameters([
+        string(name: 'submodule', defaultValue: ''),
+        string(name: 'submodule_branch', defaultValue: ''),
+        string(name: 'commit_sha', defaultValue: ''),
+      ])
+    ])
+
 
     stages {
         stage('Preparation') {
