@@ -1,33 +1,13 @@
 pipeline {
     agent any
-
-    properties([
-      parameters([
-        string(name: 'submodule', defaultValue: ''),
-        string(name: 'submodule_branch', defaultValue: ''),
-        string(name: 'commit_sha', defaultValue: ''),
-      ])
-    ])
-
-
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    }
     stages {
-        stage('Preparation') {
+        stage('Example') {
             steps {
-                echo "I'm on the first branch!"
+                echo "${params.Greeting} World!"
             }
-            
-        }
-        
-        stage('Test') {
-            steps {
-                echo "I'm on the first branch!"
-            }
-        }
-        
-        stage('Publish') {
-            steps {
-                echo "I'm on the first branch!"
-            } 
         }
     }
 }
